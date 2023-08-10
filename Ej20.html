@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matriz a Array con DOM</title>
+</head>
+<body>
+    <h1>Matriz a Array con DOM</h1>
+    <div id="output"></div>
+
+    <script>
+        // Matriz original
+        const matrizOriginal = [[3], [6], [9], [12], [15]];
+
+        // Transformar matriz en un array y multiplicar cada elemento por 2
+        const arrayResultado = matrizOriginal.map(subarray => subarray[0] * 2);
+
+        // Mostrar resultados en el DOM
+        const outputDiv = document.getElementById("output");
+        const matrizOriginalElement = document.createElement("p");
+        matrizOriginalElement.textContent = "Matriz original: " + JSON.stringify(matrizOriginal);
+        outputDiv.appendChild(matrizOriginalElement);
+
+        const arrayResultadoElement = document.createElement("p");
+        arrayResultadoElement.textContent = "Array resultado: " + JSON.stringify(arrayResultado);
+        outputDiv.appendChild(arrayResultadoElement);
+    </script>
+</body>
+</html>

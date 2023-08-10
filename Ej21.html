@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obtener Propiedades de Persona</title>
+</head>
+<body>
+    <h1>Obtener Propiedades de Persona</h1>
+    <form id="persona-form" onsubmit="getPropiedades()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" placeholder="Nombre"><br>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" placeholder="Edad"><br>
+        <label for="sexo">Sexo:</label>
+        <select id="sexo">
+            <option value="H">Hombre</option>
+            <option value="M">Mujer</option>
+            <option value="O">Otro</option>
+        </select><br>
+        <label for="peso">Peso:</label>
+        <input type="number" id="peso" placeholder="Peso"><br>
+        <label for="altura">Altura:</label>
+        <input type="number" id="altura" placeholder="Altura"><br>
+        <button type="submit">Obtener Propiedades</button>
+    </form>
+    
+    <div id="resultado"></div>
+    
+    <script>
+        function getPropiedades() {
+            event.preventDefault();
+
+            const nombre = document.getElementById("nombre").value;
+            const edad = document.getElementById("edad").value;
+            const sexo = document.getElementById("sexo").value;
+            const peso = document.getElementById("peso").value;
+            const altura = document.getElementById("altura").value;
+
+            const propiedades = {
+                nombre: nombre,
+                edad: edad,
+                sexo: sexo,
+                peso: peso,
+                altura: altura
+            };
+
+            const propiedadesArray = Object.keys(propiedades);
+            const resultadoDiv = document.getElementById("resultado");
+            
+            resultadoDiv.innerHTML = "<h2>Propiedades:</h2>";
+            for (const propiedad of propiedadesArray) {
+                resultadoDiv.innerHTML += `${propiedad}: ${propiedades[propiedad]}<br>`;
+            }
+        }
+    </script>
+</body>
+</html>
+
+

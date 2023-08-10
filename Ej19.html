@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arreglos con DOM</title>
+</head>
+<body>
+    <h1>Arreglos con DOM</h1>
+    <div id="output"></div>
+
+    <script>
+        const generarArreglos = () => {
+            const arregloA = Array.from({ length: 50 }, () => parseFloat((Math.random() * 100).toFixed(2))).sort((a, b) => a - b);
+            const arregloB = [...arregloA.slice(0, 10), ...Array(10).fill(0.5)];
+            mostrarResultados(arregloA, arregloB);
+        };
+
+        const mostrarResultados = (arregloA, arregloB) => {
+            const outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = `
+                <p>Arreglo A después de ordenar: ${arregloA.join(", ")}</p>
+                <p>Arreglo B resultante: ${arregloB.join(", ")}</p>
+            `;
+        };
+
+        generarArreglos();
+    </script>
+</body>
+</html>
